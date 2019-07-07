@@ -1,0 +1,22 @@
+{
+  "name": "music-player",
+  "version": "0.0.5",
+  "description": "custom music player using electron - nodejs - nedb",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": " electron  ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rdhaliwal97/music-player.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rdhaliwal97/music-player/issues"
+  },
+  "homepage": "https://github.com/Rdhaliwal97/music-player#readme"
+}
