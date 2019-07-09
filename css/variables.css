@@ -4,9 +4,5 @@
   --main-grid-areas:
     "titlebar titlebar titlebar"
     "sidebar mainPanel mainPanel"
-    "player player player";
-  --sidebar-bgc: #eee ;
-  --main-bgc: ;
-  --player-bgc: #4e4e4e;
-  --titlebar-bgc: #6d6d6d
+    "sidebar player player";
 }

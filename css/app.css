@@ -16,15 +16,18 @@ body,html{
   grid-area: titlebar;
   background-color: var(--titlebar-bgc);
   display: grid;
-  grid-template-columns: 1fr 150px
+  grid-template-columns: 50px 1fr 150px
 }
 #sidebar{
   grid-area: sidebar;
   background-color: var(--sidebar-bgc);
 }
+.color-sidebar{
+  background-color: var(--sidebar-bgc);
+}
 #mainPanel{
   grid-area: mainPanel;
-  background-color: #f0f
+  background-color: var(--main-bgc)
 }
 #player{
   grid-area: player;
