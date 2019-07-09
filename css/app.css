@@ -6,17 +6,21 @@ body,html{
 /*  */
 #container{
   display: grid;
-  grid-template-rows: 1fr 90px;
-  grid-template-columns: 50px 1fr;
-  grid-template-areas:
-    "sidebar mainPanel"
-    "player player";
+  grid-template-rows: var(--main-grid-rows);
+  grid-template-columns: var(--main-grid-cols);
+  grid-template-areas:  var(--main-grid-areas);
   width: 100vw;
   height: 100vh;
 }
+#titleBar{
+  grid-area: titlebar;
+  background-color: var(--titlebar-bgc);
+  display: grid;
+  grid-template-columns: 1fr 150px
+}
 #sidebar{
   grid-area: sidebar;
-  background-color: #0ff;
+  background-color: var(--sidebar-bgc);
 }
 #mainPanel{
   grid-area: mainPanel;
@@ -24,5 +28,5 @@ body,html{
 }
 #player{
   grid-area: player;
-  background-color: #ff0;
+  background-color: var(--player-bgc);
 }

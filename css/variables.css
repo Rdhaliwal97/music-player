@@ -1,3 +1,12 @@
 :root{
-  --grid: ;
+  --main-grid-rows: 30px 1fr 90px;
+  --main-grid-cols: 50px 1fr 75px;
+  --main-grid-areas:
+    "titlebar titlebar titlebar"
+    "sidebar mainPanel mainPanel"
+    "player player player";
+  --sidebar-bgc: #eee ;
+  --main-bgc: ;
+  --player-bgc: #4e4e4e;
+  --titlebar-bgc: #6d6d6d
 }
