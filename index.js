@@ -1,9 +1,9 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const iconPath = path.resolve(process.cwd(), 'media', 'favicon.png');
+const iconPath = path.resolve(process.cwd(), 'media', 'icons', '24.png');
 let win;
 function createWindow () {
-  win = new BrowserWindow({show: false , icon: iconPath, frame: false})
+  win = new BrowserWindow({show: false , icon: iconPath})
   win.maximize();
   win.show();
   win.loadFile('index.html')

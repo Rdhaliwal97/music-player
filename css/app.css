@@ -3,3 +3,26 @@ body,html{
   padding: 0;
   user-select: none;
 }
+/*  */
+#container{
+  display: grid;
+  grid-template-rows: 1fr 90px;
+  grid-template-columns: 50px 1fr;
+  grid-template-areas:
+    "sidebar mainPanel"
+    "player player";
+  width: 100vw;
+  height: 100vh;
+}
+#sidebar{
+  grid-area: sidebar;
+  background-color: #0ff;
+}
+#mainPanel{
+  grid-area: mainPanel;
+  background-color: #f0f
+}
+#player{
+  grid-area: player;
+  background-color: #ff0;
+}
