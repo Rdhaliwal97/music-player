@@ -2,9 +2,7 @@ document.querySelector('#addDirectory').addEventListener('click',addDirectory);
 document.getElementById("min-btn").addEventListener("click", minimizeWindow);
 document.getElementById("max-btn").addEventListener("click",maxWindow);
 document.getElementById("close-btn").addEventListener("click", closeWindow);
-document.getElementById("settings").addEventListener("click", e=>{
-  changeTheme(e)
-});
+// document.getElementById("settings").addEventListener("click", );
 //
 function getDirectory(){
   return remote.dialog.showOpenDialog(null, {
@@ -30,11 +28,6 @@ function maxWindow() {
 async function addDirectory() {
   let exportDirArr = await getDirectory();
   console.log('exportDirArr :', exportDirArr);
-}
-function changeTheme(event) {
-  const themeName = event.target.getAttribute('data-theme');
-  console.log(themeName + '.css');
-  document.getElementById('themeFile').href = path.resolve('css', `${themeName}.css`)
 }
 //
 function setTheme(themeName = 'dark') {
