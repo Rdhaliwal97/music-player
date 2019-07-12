@@ -16,7 +16,7 @@ body,html{
   grid-area: titlebar;
   background-color: var(--titlebar-bgc);
   display: grid;
-  grid-template-columns: 50px 1fr 150px
+  grid-template-columns: 50px 1fr 100px
 }
 #sidebar{
   grid-area: sidebar;
@@ -32,4 +32,24 @@ body,html{
 #player{
   grid-area: player;
   background-color: var(--player-bgc);
+}
+.windowControlButton{
+  /* close, min, max */
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--windowControlButton-bgc)
+}
+.windowControlButton:focus,
+.windowControlButton:active{
+  outline: none;
+  border: none;
+}
+.windowControlButton:hover{
+  background-color: var(--windowControlButton-hover-bgc) ;
+}
+#close-btn:hover{
+  background-color: #f00;
 }

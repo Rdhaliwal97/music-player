@@ -1,8 +1,0 @@
-:root{
-  --main-grid-rows: 30px 1fr 90px;
-  --main-grid-cols: 50px 1fr 75px;
-  --main-grid-areas:
-    "titlebar titlebar titlebar"
-    "sidebar mainPanel mainPanel"
-    "sidebar player player";
-}

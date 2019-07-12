@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Music Player</title>
-    <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" id="themeFile" data-active-theme="dark" href="css/darktheme.css" />
+    <link rel="stylesheet" id="themeFile" />
   </head>
   <body>
     <div id="container">
@@ -15,20 +14,20 @@
         <div class="color-sidebar"></div>
         <div></div>
         <div>
-          <button id="min-btn">&#95;</button>
-          <button id="max-btn">&square;</button>
-          <button id="close-btn">&CircleTimes;</button>
+          <button class="windowControlButton" id="min-btn">&#95;</button>
+          <button class="windowControlButton" id="max-btn">&square;</button>
+          <button class="windowControlButton" id="close-btn">&CircleTimes;</button>
         </div>
       </div>
       <div id="sidebar">
         <div id="topSidebarMenu">
-          <img src="media/icons/menu.png" alt="" />
-          <img src="media/icons/search.png" alt="" />
-          <img src="media/icons/recent.png" alt="" />
-          <img src="media/icons/add.png" alt="" />
+          <img id="menu" />
+          <img id="search" />
+          <img id="recent" />
+            <img id="addDirectory" />
         </div>
         <div id="bottomSidebarMenu">
-          <img src="media/icons/setting.png" alt="" />
+          <img alt="" id="settings" />
         </div>
       </div>
       <div id="mainPanel"></div>
@@ -37,7 +36,7 @@
     <!-- scripts -->
     <script src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/nedb.1.8.0.js"></script>
-    <script src="js/variables.js"></script>
+    <script src="js/constant.js"></script>
     <script src="js/player.js"></script>
     <script src="js/app.js"></script>
   </body>

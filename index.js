@@ -7,7 +7,7 @@ function createWindow() {
   win.maximize();
   win.show();
   win.loadFile("index.html");
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
   win.on("closed", () => {
     win = null;
   });

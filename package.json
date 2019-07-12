@@ -19,5 +19,9 @@
     "url": "https://github.com/Rdhaliwal97/music-player/issues"
   },
   "homepage": "https://github.com/Rdhaliwal97/music-player#readme",
-  "dependencies": {}
+  "dependencies": {
+    "edit-json-file": "^1.2.1",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7"
+  }
 }
