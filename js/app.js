@@ -33,7 +33,4 @@ async function addDirectory() {
 function setTheme(themeName = 'light') {
   /* dark || light */
   document.getElementById('themeFile').href = path.resolve('css', themeName, 'variables.css');
-  document.getElementById('search').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'search.png');
-  document.getElementById('recent').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'recent.png');
-  document.getElementById('addDirectory').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'add.png');
 }setTheme();
