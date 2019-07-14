@@ -5,25 +5,39 @@ body,html{
 }
 /*  */
 #container{
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid var(--sidebar-bgc);
   display: grid;
   grid-template-rows: var(--main-grid-rows);
   grid-template-columns: var(--main-grid-cols);
   grid-template-areas:  var(--main-grid-areas);
-  width: 100vw;
-  height: 100vh;
+  box-sizing: border-box;
 }
 #titleBar{
   grid-area: titlebar;
   background-color: var(--titlebar-bgc);
   display: grid;
-  grid-template-columns: 50px 1fr 100px
+  grid-template-columns: 1fr 100px
+}
+.draggable{
+  -webkit-app-region:drag;
 }
 #sidebar{
   grid-area: sidebar;
   background-color: var(--sidebar-bgc);
+  display: grid;
+  grid-template-rows: 30px auto 1fr 50px ;
+  grid-template-columns: 1fr;
 }
-.color-sidebar{
-  background-color: var(--sidebar-bgc);
+.sidebarIcons{
+  padding: 10px;
+  fill: var(--sidebarIcons-fill);
+  height: 30px;
+  width: 30px;
+}
+#search{
+  transform: scaleX(-1)
 }
 #mainPanel{
   grid-area: mainPanel;

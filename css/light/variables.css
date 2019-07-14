@@ -2,10 +2,11 @@
   --main-grid-rows: 30px 1fr 90px;
   --main-grid-cols: 50px 1fr 75px;
   --main-grid-areas:
-    "titlebar titlebar titlebar"
+    "sidebar titlebar titlebar"
     "sidebar mainPanel mainPanel"
-    "sidebar player player";
+    "player player player";
   --sidebar-bgc: #f2f2f2;
+  --sidebarIcons-fill: #000000;
   --main-bgc: #ffffff;
   --player-bgc: #464d57;
   --titlebar-bgc: #ffffff;

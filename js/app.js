@@ -30,12 +30,10 @@ async function addDirectory() {
   console.log('exportDirArr :', exportDirArr);
 }
 //
-function setTheme(themeName = 'dark') {
+function setTheme(themeName = 'light') {
   /* dark || light */
   document.getElementById('themeFile').href = path.resolve('css', themeName, 'variables.css');
-  document.getElementById('menu').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'menu.png')
-  document.getElementById('search').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'search.png')
-  document.getElementById('recent').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'recent.png')
-  document.getElementById('addDirectory').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'add.png')
-  document.getElementById('settings').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'settings.png')
+  document.getElementById('search').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'search.png');
+  document.getElementById('recent').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'recent.png');
+  document.getElementById('addDirectory').src = path.resolve(installRootPath, 'media', 'icons', themeName, 'add.png');
 }setTheme();
