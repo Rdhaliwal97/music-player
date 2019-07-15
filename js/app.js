@@ -34,3 +34,26 @@ function setTheme(themeName = 'light') {
   /* dark || light */
   document.getElementById('themeFile').href = path.resolve('css', themeName, 'variables.css');
 }setTheme();
+//
+const extFilter = 'mp3'
+let songArr = [];
+function extension(element) {
+  let extName = path.extname(element);
+  return extName === '.' + extFilter;
+}
+function extractMusicFiles() {
+  fs.readdir(installRootPath, (err, list)=>{
+    if(err) console.log(err);
+    else list.filter(extension).forEach(element => {
+        songArr.push(element);
+      });
+  })
+}extractMusicFiles();
+async function parseFiles(audioFiles) {
+  for (const audioFile of audioFiles) {
+    const metadata = await mm.parseFile(audioFile);
+  }
+}
+setTimeout(() => {
+  parseFiles(songArr);
+}, 3000);

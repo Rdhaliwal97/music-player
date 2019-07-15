@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/Rdhaliwal97/music-player#readme",
   "dependencies": {
+    "audio-metadata": "^0.3.0",
     "edit-json-file": "^1.2.1",
+    "music-metadata": "^4.2.1",
     "nedb": "^1.8.0",
     "path": "^0.12.7"
   }
