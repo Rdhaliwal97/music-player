@@ -1,5 +1,7 @@
 # music-player
-custom music player using electron - nodejs - nedb
+custom music player using electron - nodejs - nedb.
+
+<u>Add songs folder with mp3 songs in root dir to test</u>
 ## Audio formats
 + 3gp
 + aa
