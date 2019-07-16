@@ -1,8 +1,22 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover-color);
+}
+/*  */
 body,html{
   margin: 0;
   padding: 0;
   user-select: none;
-  box-sizing: border-box
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
 /*  */
 #container{
@@ -43,36 +57,15 @@ body,html{
 #mainPanel{
   grid-area: mainPanel;
   background-color: var(--main-bgc);
+  padding: 10px 0 10px 10px;
   box-sizing: border-box;
 }
-#player{
-  grid-area: player;
-  background-color: var(--player-bgc);
+#songListOptions{
+  height: 60px;
 }
-.windowControlButton{
-  /* close, min, max */
-  border: none;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  color: var(--windowControlButton-bgc)
-}
-.windowControlButton:focus,
-.windowControlButton:active{
-  outline: none;
-  border: none;
-}
-.windowControlButton:hover{
-  background-color: var(--windowControlButton-hover-bgc) ;
-}
-#close-btn:hover{
-  background-color: #f00;
-}
-/*  */
 #songList{
   box-sizing: border-box;
-  padding: 10px;
+  overflow-y: scroll;
 }
 .song{
   display: grid;
@@ -98,6 +91,36 @@ duration{
 .song:nth-child(even){
   background-color: var(--song-even-bgc);
 }
+#player{
+  grid-area: player;
+  position: absolute;
+  height: 90px;
+  width: 100vw;
+  bottom: 0;
+  right: 0;
+  background-color: var(--player-bgc);
+}
+.windowControlButton{
+  /* close, min, max */
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--windowControlButton-bgc)
+}
+.windowControlButton:focus,
+.windowControlButton:active{
+  outline: none;
+  border: none;
+}
+.windowControlButton:hover{
+  background-color: var(--windowControlButton-hover-bgc) ;
+}
+#close-btn:hover{
+  background-color: #f00;
+}
+/*  */
 /* media queries */
 @media (min-width: 1200px) {
   .song{

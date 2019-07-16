@@ -1,17 +1,27 @@
-const { remote } = require("electron");
-const editJsonFile = require("edit-json-file");
-const path = require('path');
-const rootPath = remote.app.getPath('userData');
-console.log("Logged Output: rootPath", rootPath)
-const dbPath = path.resolve(rootPath, 'db');
-const mm = require('music-metadata');
-const util = require('util');
-const fs = require('fs');
-const installRootPath = process.cwd();
-const songList = document.getElementById('songList');
-const dbcodes = {
-  error: 'error',
-  empty: 'empty',
-  exist: 'exist',
-  success: 'success'
-}
+const { remote } = require("electron"),
+  editJsonFile = require("edit-json-file"),
+  path = require("path"),
+  rootPath = remote.app.getPath("userData"),
+  dbPath = path.resolve(rootPath, "db"),
+  mm = require("music-metadata"),
+  util = require("util"),
+  fs = require("fs"),
+  fse = require("fs-extra"),
+  song = new Audio(),
+  installRootPath = process.cwd(),
+  songList = document.getElementById("songList"),
+  dbcodes = {
+    error: "error",
+    empty: "empty",
+    exist: "exist",
+    success: "success"
+  },
+  Datastore = require("nedb"),
+  directoryDb = new Datastore({
+    filename: path.resolve(dbPath, "driectory.db"),
+    autoload: true
+  }),
+  recentDb = new Datastore({
+    filename: path.resolve(dbPath, "recent.db"),
+    autoload: true
+  });

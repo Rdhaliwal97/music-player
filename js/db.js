@@ -1,6 +1,3 @@
-const Datastore = require('nedb');
-const recentDb = new Datastore({ filename: path.resolve(dbPath , 'recent.db'), autoload: true });
-const directoryDb  = new Datastore({ filename: path.resolve(dbPath , 'driectory.db'), autoload: true });
 /* database function */
 const directory = {
   add: async function(path) {
@@ -28,35 +25,6 @@ const directory = {
     }
     return dfd.promise();
   },
-  // add: (path)=>{
-  //   let dfd = jQuery.Deferred();
-  //   if(!path){
-  //     dfd.resolve({code: dbcodes.empty});
-  //     return dfd.promise()
-  //   }
-  //   directoryDb.findOne({ path: path }, function(err, doc) {
-  //     if (err) {
-  //       console.error(`error while finding-> ${path}`);
-  //       dfd.resolve({code: dbcodes.error});
-  //       return dfd.promise()
-  //     }
-  //     if (doc != null) {
-  //       console.warn(`${path} ->already exist.`);
-  //       dfd.resolve({ code: dbcodes.exist })
-  //       return dfd.promise()
-  //     }
-  //     directoryDb.insert({ path: path }, function(err, newDoc) {
-  //       if (err) {
-  //         console.warn(`error-> ${err}`);
-  //         dfd.resolve({ code: dbcodes.error })
-  //         return dfd.promise()
-  //       }
-  //       dfd.resolve({ code: dbcodes.success, docs: newDoc })
-  //       return dfd.promise()
-  //     });
-  //     return dfd.promise()
-  //   });
-  // },
   findone: (_id)=>{
     const dfd = jQuery.Deferred();
     directoryDb.find({path: path}).sort({timeStamp: -1}).exec(function(err, docs) {
@@ -83,7 +51,6 @@ const directory = {
         dfd.reject({ code: dbcodes.error });
         return dfd.promise();
       }
-      console.log(docs);
       dfd.resolve({ code: dbcodes.success, docs: docs });
     });
     return dfd.promise();
