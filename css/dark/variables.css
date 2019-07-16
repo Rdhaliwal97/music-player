@@ -9,9 +9,10 @@
   --sidebarIcons-fill: #ffffff;
   --main-bgc: #000000;
   --player-bgc: #4e4e4e;
+  --song-color: #f7f1f1;
   --titlebar-bgc: #000000;
-  --song-odd-bgc: #000;
-  --song-even-bgc: #1a1a1a;
+  --song-odd-bgc: #1a1a1a;
+  --song-even-bgc: #000;
   --song-hover-bgc: #333333;
   --song-active: #3b4452;
   --windowControlButton-bgc: #ffffff;

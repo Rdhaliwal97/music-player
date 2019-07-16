@@ -2,6 +2,7 @@ body,html{
   margin: 0;
   padding: 0;
   user-select: none;
+  box-sizing: border-box
 }
 /*  */
 #container{
@@ -41,7 +42,8 @@ body,html{
 }
 #mainPanel{
   grid-area: mainPanel;
-  background-color: var(--main-bgc)
+  background-color: var(--main-bgc);
+  box-sizing: border-box;
 }
 #player{
   grid-area: player;
@@ -67,3 +69,43 @@ body,html{
 #close-btn:hover{
   background-color: #f00;
 }
+/*  */
+#songList{
+  box-sizing: border-box;
+  padding: 10px;
+}
+.song{
+  display: grid;
+  box-sizing: border-box;
+  gap: 0 5px 0 0;
+  padding: 5px 0;
+  height: 40px;
+  line-height: 30px;
+  padding-left: 10px;
+  color: var(--song-color)
+}
+.song > *{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+duration{
+  padding-right: 10px;
+}
+.song:nth-child(odd){
+  background-color: var(--song-odd-bgc);
+}
+.song:nth-child(even){
+  background-color: var(--song-even-bgc);
+}
+/* media queries */
+@media (min-width: 1200px) {
+  .song{
+    grid-template-columns: minmax(360px, 1fr) minmax(0, 360px) minmax(0,360px) 40px
+  }
+}
+/* @media (min-width: 1300px) {
+  .song{
+    grid-template-columns: 390px 390px 390px minmax(30px, 1fr);
+  }
+} */
