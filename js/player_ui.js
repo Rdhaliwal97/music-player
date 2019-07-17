@@ -12,7 +12,7 @@ function addSongTODisplay(metadata, audioFile, __path) {
   let album = (metadata.common.album)
     ?metadata.common.album
     : 'Unknown album'
-  songList.innerHTML += `<div class='song' data-song-path='${path.resolve(__path,audioFile)}'>
+  songList.innerHTML += `<div class='song' data-duration-min='${mins}' data-duration-sec='${totalseconds}' data-song-path='${path.resolve(__path,audioFile)}'>
       <songName>${title}</songName>
       <artist>${artist}</artist>
       <album>${album}</album>
@@ -42,4 +42,6 @@ document.querySelector('#songList').addEventListener('click',(event)=>{
   const songSrc = target.getAttribute('data-song-path');
   song.src = songSrc;
   song.play();
+  currTimeElement.textContent = '0:00'
+  durationElement.textContent = `${target.getAttribute('data-duration-min')}:${target.getAttribute('data-duration-sec')}`
 })

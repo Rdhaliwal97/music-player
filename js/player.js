@@ -47,3 +47,8 @@ async function parseFiles(audioFiles, __path) {
 function openSettings() {
   //
 }
+const slider = document.getElementById("myRange");
+
+slider.oninput = function() {
+  console.log(this.value);
+}

@@ -4,11 +4,11 @@
   --main-grid-areas:
     "sidebar titlebar titlebar"
     "sidebar mainPanel mainPanel"
-    "player player player";
+    "playerArea playerArea playerArea";
   --sidebar-bgc: #2b2b2b ;
   --sidebarIcons-fill: #ffffff;
   --main-bgc: #000000;
-  --player-bgc: #4e4e4e;
+  --playerArea-bgc: #4e4e4e;
   --song-color: #f7f1f1;
   --titlebar-bgc: #000000;
   --song-odd-bgc: #1a1a1a;

@@ -18,6 +18,26 @@ body,html{
   box-sizing: border-box;
   overflow-y: hidden;
 }
+.windowControlButton{
+  /* close, min, max */
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: var(--windowControlButton-bgc)
+}
+.windowControlButton:focus,
+.windowControlButton:active{
+  outline: none;
+  border: none;
+}
+.windowControlButton:hover{
+  background-color: var(--windowControlButton-hover-bgc) ;
+}
+#close-btn:hover{
+  background-color: #f00;
+}
 /*  */
 #container{
   width: 100vw;
@@ -91,44 +111,89 @@ duration{
 .song:nth-child(even){
   background-color: var(--song-even-bgc);
 }
-#player{
-  grid-area: player;
+#playerArea{
+  grid-area: playerArea;
   position: absolute;
   height: 90px;
   width: 100vw;
   bottom: 0;
   right: 0;
-  background-color: var(--player-bgc);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 40px;
+  grid-template-areas:
+  "songinfo player"
+  "progressBar progressBar";
+  background-color: var(--playerArea-bgc);
 }
-.windowControlButton{
-  /* close, min, max */
-  border: none;
-  padding: 0;
-  width: 30px;
+#songInfo{
+  background-color: #0ff;
+  grid-area: songinfo;
+}
+#player{
+  background-color: #f0f;
+  grid-area: player;
+}
+#controls{
+  background-color: #ff0;
+  grid-area: controls;
+}
+#songProgressbar{
+  grid-area: progressBar;
+  text-align: center;
   height: 30px;
-  background-color: transparent;
-  color: var(--windowControlButton-bgc)
+  line-height: 30px;
+  color: #ffffff;
+  padding: 5px;
 }
-.windowControlButton:focus,
-.windowControlButton:active{
+#currTime,
+#duration{
+  height: 40px;
+  padding-top: 20px;
+}
+/* time indicator */
+.slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 4px;
+  border-radius: 2px;
+  background: #fff;
   outline: none;
-  border: none;
 }
-.windowControlButton:hover{
-  background-color: var(--windowControlButton-hover-bgc) ;
+.slider::-webkit-slider-thumb {
+  all: unset;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: var(--playerArea-bgc);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 4px var(--playerArea-bgc);
+  cursor: pointer;
+  margin-top: 5px;
+  opacity: 1;
 }
-#close-btn:hover{
-  background-color: #f00;
+.slider::-webkit-slider-thumb:hover{
+  background-color: #ffffff;
 }
-/*  */
+
 /* media queries */
 @media (min-width: 1200px) {
   .song{
     grid-template-columns: minmax(360px, 1fr) minmax(0, 360px) minmax(0,360px) 40px
   }
 }
-/* @media (min-width: 1300px) {
-  .song{
-    grid-template-columns: 390px 390px 390px minmax(30px, 1fr);
+@media (min-width: 650px) {
+  #playerArea{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 40px;
+    grid-template-areas:
+    "songinfo player controls"
+    "songinfo progressBar controls"
   }
-} */
+}
+@media (min-width: 1200px) {
+  .song{
+    grid-template-columns: minmax(360px, 1fr) minmax(0, 360px) minmax(0,360px) 40px
+  }
+}
