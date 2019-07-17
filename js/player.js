@@ -50,5 +50,6 @@ function openSettings() {
 const slider = document.getElementById("myRange");
 
 slider.oninput = function() {
-  console.log(this.value);
+  // console.log(this.value);
+  song.currentTime = this.value;
 }

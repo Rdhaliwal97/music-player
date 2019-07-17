@@ -12,7 +12,7 @@ function addSongTODisplay(metadata, audioFile, __path) {
   let album = (metadata.common.album)
     ?metadata.common.album
     : 'Unknown album'
-  songList.innerHTML += `<div class='song' data-duration-min='${mins}' data-duration-sec='${totalseconds}' data-song-path='${path.resolve(__path,audioFile)}'>
+  songList.innerHTML += `<div class='song' data-duration='${metadata.format.duration}' data-song-path='${path.resolve(__path,audioFile)}'>
       <songName>${title}</songName>
       <artist>${artist}</artist>
       <album>${album}</album>
@@ -40,8 +40,22 @@ document.querySelector('#songList').addEventListener('click',(event)=>{
     ?event.target
     :event.target.parentNode
   const songSrc = target.getAttribute('data-song-path');
+  let duration = target.getAttribute('data-duration')
   song.src = songSrc;
   song.play();
+  myRange.min = 0;
+  myRange.value = 0;
+  myRange.max = duration;
   currTimeElement.textContent = '0:00'
-  durationElement.textContent = `${target.getAttribute('data-duration-min')}:${target.getAttribute('data-duration-sec')}`
-})
+  let mins = parseInt(duration / 60);
+  let totalseconds = parseInt(duration % 60);
+  durationElement.textContent = `${mins}:${totalseconds}`
+});
+//
+song.addEventListener("timeupdate", _ => {
+  myRange.value = song.currentTime;
+  let currentmins = parseInt(song.currentTime / 60);
+  let currentseconds = parseInt(song.currentTime % 60);
+  if (currentseconds <= 9) currentseconds = "0" + currentseconds;
+  currTimeElement.textContent = `${currentmins}:${currentseconds}`;
+});

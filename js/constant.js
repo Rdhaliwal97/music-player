@@ -10,6 +10,7 @@ const { remote } = require("electron"),
   song = new Audio(),
   currTimeElement = document.getElementById('currTime'),
   durationElement = document.getElementById('duration'),
+  myRange = document.getElementById('myRange'),
   installRootPath = process.cwd(),
   songList = document.getElementById("songList"),
   dbcodes = {
