@@ -1,5 +1,4 @@
 const { remote } = require("electron"),
-  editJsonFile = require("edit-json-file"),
   path = require("path"),
   rootPath = remote.app.getPath("userData"),
   dbPath = path.resolve(rootPath, "db"),
