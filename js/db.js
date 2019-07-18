@@ -64,7 +64,7 @@ const directory = {
     }
     directoryDb.remove({_id: _id}, {}, function(err, numRemoved) {
       if (err) {
-        console.error(`Exception deleting path Items: ${_id}`);
+        console.error(`Exception deleting path Item: ${_id}`);
         dfd.resolve({ code: dbcodes.error });
         return dfd.promise();
       }
@@ -72,4 +72,16 @@ const directory = {
     });
     return dfd.promise();
   },
+  deleteAll: _=>{
+    let dfd = jQuery.Deferred();
+    directoryDb.remove({}, {}, function(err, numRemoved) {
+      if (err) {
+        console.error(`Exception deleting all path Items`);
+        dfd.resolve({ code: dbcodes.error });
+        return dfd.promise();
+      }
+      dfd.resolve({ code: dbcodes.success, docs: numRemoved });
+    });
+    return dfd.promise();
+  }
 }

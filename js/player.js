@@ -22,11 +22,14 @@ function getDirectory() {
 async function addDirectory() {
   let exportDirArr = await getDirectory();
   if (exportDirArr) {
+    let pathArr = [];
     for (const exportDir of exportDirArr) {
       let res = await directory.add(exportDir);
-      if (res.code == dbcodes.success) console.log("success");
+      if (res.code == dbcodes.success) pathArr.push(exportDir)
       else console.log("failure");
     }
+    let songArr = await extractMusicFiles(pathArr);
+    parseFiles(songArr);
   }
 }
 //
@@ -35,21 +38,28 @@ function extension(element) {
   return extName === ".mp3";
 }
 //
-async function extractMusicFiles(__dir) {
-  let res = await fse.readdir(__dir);
+// let songArr = []
+async function extractMusicFiles(__pathArr) {
+  console.log("Logged Output: extractMusicFiles -> __pathArr", __pathArr)
   let songArr = [];
-  res.filter(extension).forEach(element => {
-    songArr.push(element);
-  });
+  for (const __path of __pathArr) {
+    let res = await fse.readdir(__path);
+    res.filter(extension).forEach(element => {
+      songArr.push({ name: element, path: path.resolve(__path, element) });
+    });
+  }
+  songArr.sort(function (a, b) {
+    return a.name - b.name;
+  })
+  console.log(songArr);
   return songArr;
 }
 //
-async function parseFiles(audioFiles, __path) {
-  // console.log("Logged Output: parseFiles -> audioFiles", audioFiles)
+async function parseFiles(audioFiles) {
   for (const audioFile of audioFiles) {
     //takes complete path instead of file name
-    const metadata = await mm.parseFile(path.resolve(__path, audioFile));
-    addSongTODisplay(metadata, audioFile, __path);
+    const metadata = await mm.parseFile(audioFile.path);
+    addSongToDisplay(metadata, audioFile);
   }
 }
 //
@@ -59,7 +69,7 @@ function openSettings() {
 //
 async function playSong(songSrc) {
   const metadata = await mm.parseFile(songSrc);
-  let duration =metadata.format.duration;
+  let duration = metadata.format.duration;
   song.src = songSrc;
   song.play();
   playPauseElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill='#ffffff' width="30px" height="30px" viewBox="0 0 8 8">
@@ -70,7 +80,9 @@ async function playSong(songSrc) {
   myRange.max = duration;
   currTimeElement.textContent = "0:00";
   playPauseElement.setAttribute("data-curr-song", songSrc);
-  durationElement.textContent = `${parseInt(duration / 60)}:${parseInt(duration % 60)}`;
+  durationElement.textContent = `${parseInt(duration / 60)}:${parseInt(
+    duration % 60
+  )}`;
 }
 //
 function pauseSong() {

@@ -1,18 +1,20 @@
-function addSongTODisplay(metadata, audioFile, __path) {
+function addSongToDisplay(metadata, songObj) {
+  let audioFile= songObj.name;
+  let __path = songObj.path
   let extName = path.extname(audioFile);
   let mins = parseInt(metadata.format.duration / 60);
   let totalseconds = parseInt(metadata.format.duration % 60);
   if (totalseconds < 10) totalseconds = "0" + totalseconds;
   let title = (metadata.common.title)
     ?metadata.common.title
-    :path.posix.basename(audioFile, extName)
+    :path.posix.basename(path.basename(audioFile), extName)
   let artist = (metadata.common.artist)
     ?metadata.common.artist
     : 'Unknown artist';
   let album = (metadata.common.album)
     ?metadata.common.album
     : 'Unknown album'
-  songList.innerHTML += `<div class='song' data-id='' data-duration='${metadata.format.duration}' data-song-path='${path.resolve(__path,audioFile)}'>
+  songList.innerHTML += `<div class='song' data-id='' data-duration='${metadata.format.duration}' data-song-path='${__path}'>
       <songName>${title}</songName>
       <artist>${artist}</artist>
       <album>${album}</album>
@@ -40,7 +42,7 @@ document.querySelector('#songList').addEventListener('click',(event)=>{
     :event.target.parentNode
   const songSrc = target.getAttribute('data-song-path');
   const duration = target.getAttribute('data-duration')
-  playSong(songSrc);
+  if(songSrc) playSong(songSrc);
 });
 //
 song.addEventListener("timeupdate", _ => {

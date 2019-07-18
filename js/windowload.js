@@ -3,12 +3,10 @@ async function preload() {
     setTheme();
     let res = await directory.findall();
     if(res.code == dbcodes.success){
-      for (const doc of res.docs){
-        // console.log("Logged Output: preload -> doc", doc)
-        let songArr = await extractMusicFiles(doc.path);
-        // console.log("Logged Output: preload -> songArr", songArr)
-        parseFiles(songArr, doc.path)
-      }
+      for (const doc of res.docs)
+        songPath.push(doc.path)
+      let songArr = await extractMusicFiles(songPath);
+      parseFiles(songArr);
     }
   }catch(err){
     console.log(err);
