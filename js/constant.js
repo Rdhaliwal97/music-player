@@ -33,3 +33,4 @@ const { remote } = require("electron"),
     filename: path.resolve(dbPath, "recent.db"),
     autoload: true
   });
+let songIndex = 0;

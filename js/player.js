@@ -40,7 +40,6 @@ function extension(element) {
 //
 // let songArr = []
 async function extractMusicFiles(__pathArr) {
-  console.log("Logged Output: extractMusicFiles -> __pathArr", __pathArr)
   let songArr = [];
   for (const __path of __pathArr) {
     let res = await fse.readdir(__path);
@@ -49,9 +48,10 @@ async function extractMusicFiles(__pathArr) {
     });
   }
   songArr.sort(function (a, b) {
-    return a.name - b.name;
+    if(a.name > b.name) return 1
+    else if(a.name < b.name) return -1
+    else return 0
   })
-  console.log(songArr);
   return songArr;
 }
 //
