@@ -59,6 +59,7 @@ function openSettings() {
 //
 async function playSong(songSrc) {
   const metadata = await mm.parseFile(songSrc);
+  let duration =metadata.format.duration;
   song.src = songSrc;
   song.play();
   playPauseElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill='#ffffff' width="30px" height="30px" viewBox="0 0 8 8">
@@ -69,9 +70,7 @@ async function playSong(songSrc) {
   myRange.max = duration;
   currTimeElement.textContent = "0:00";
   playPauseElement.setAttribute("data-curr-song", songSrc);
-  durationElement.textContent = `${parseInt(
-    metadata.format.duration / 60
-  )}:${parseInt(metadata.format.duration % 60)}`;
+  durationElement.textContent = `${parseInt(duration / 60)}:${parseInt(duration % 60)}`;
 }
 //
 function pauseSong() {
