@@ -1,4 +1,6 @@
 # music-player
+started on 7 july 2019
+
 custom music player using electron - nodejs - nedb.
 
 <u>Add songs folder with mp3 songs in root dir to test</u>
