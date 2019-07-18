@@ -55,13 +55,18 @@ shuffleElement.addEventListener('click', (event)=>{
 });
 previousElement.addEventListener('click', (event)=>{
   console.log(event.target);
-})
+});
 playPauseElement.addEventListener('click', (event)=>{
   if(event.target.getAttribute('data-is-playing') == 'false'){
     let songSrc = playPauseElement.getAttribute('data-curr-song');
     if(songSrc){
       if(songSrc == 0) playSong(songSrc);
-      else song.play()
+      else{
+        song.play();
+        playPauseElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill='#ffffff' width="30px" height="30px" viewBox="0 0 8 8">
+          <path d="M0 0v6h2v-6h-2zm4 0v6h2v-6h-2z" transform="translate(1 1)" />
+        </svg>`;
+      }
       event.target.setAttribute('data-is-playing', true)
     }else if(songList.children.length > 0){
       songSrc = songList.children[0].getAttribute('data-song-path');
@@ -71,13 +76,15 @@ playPauseElement.addEventListener('click', (event)=>{
       console.log('no song added to music player');
     }
   }else{
-    song.pause();
+    pauseSong()
     event.target.setAttribute('data-is-playing', false)
   }
 });
 nextElement.addEventListener('click', (event)=>{
   console.log(event.target);
-})
+});
 loopElement.addEventListener('click', (event)=>{
-  console.log(event.target);
-})
+  (song.loop)
+    ?song.loop = false
+    :song.loop = true
+});
