@@ -7,12 +7,17 @@ const { remote } = require("electron"),
   util = require("util"),
   fs = require("fs"),
   fse = require("fs-extra"),
+  installRootPath = process.cwd(),
   song = new Audio(),
+  songList = document.getElementById("songList"),
   currTimeElement = document.getElementById('currTime'),
   durationElement = document.getElementById('duration'),
   myRange = document.getElementById('myRange'),
-  installRootPath = process.cwd(),
-  songList = document.getElementById("songList"),
+  shuffleElement = document.getElementById('shuffle')
+  previousElement = document.getElementById('previous')
+  playPauseElement = document.getElementById('playPause')
+  nextElement = document.getElementById('next')
+  loopElement = document.getElementById('loop')
   dbcodes = {
     error: "error",
     empty: "empty",

@@ -12,7 +12,7 @@ function addSongTODisplay(metadata, audioFile, __path) {
   let album = (metadata.common.album)
     ?metadata.common.album
     : 'Unknown album'
-  songList.innerHTML += `<div class='song' data-duration='${metadata.format.duration}' data-song-path='${path.resolve(__path,audioFile)}'>
+  songList.innerHTML += `<div class='song' data-id='' data-duration='${metadata.format.duration}' data-song-path='${path.resolve(__path,audioFile)}'>
       <songName>${title}</songName>
       <artist>${artist}</artist>
       <album>${album}</album>
@@ -20,7 +20,6 @@ function addSongTODisplay(metadata, audioFile, __path) {
     </div>`
 }
 function setTheme(themeName = 'light') {
-  /* dark || light */
   document.getElementById('themeFile').href = path.resolve('css', themeName, 'variables.css');
 }
 //
@@ -40,16 +39,8 @@ document.querySelector('#songList').addEventListener('click',(event)=>{
     ?event.target
     :event.target.parentNode
   const songSrc = target.getAttribute('data-song-path');
-  let duration = target.getAttribute('data-duration')
-  song.src = songSrc;
-  song.play();
-  myRange.min = 0;
-  myRange.value = 0;
-  myRange.max = duration;
-  currTimeElement.textContent = '0:00'
-  let mins = parseInt(duration / 60);
-  let totalseconds = parseInt(duration % 60);
-  durationElement.textContent = `${mins}:${totalseconds}`
+  const duration = target.getAttribute('data-duration')
+  playSong(songSrc);
 });
 //
 song.addEventListener("timeupdate", _ => {
@@ -59,3 +50,34 @@ song.addEventListener("timeupdate", _ => {
   if (currentseconds <= 9) currentseconds = "0" + currentseconds;
   currTimeElement.textContent = `${currentmins}:${currentseconds}`;
 });
+shuffleElement.addEventListener('click', (event)=>{
+  console.log(event.target);
+});
+previousElement.addEventListener('click', (event)=>{
+  console.log(event.target);
+})
+playPauseElement.addEventListener('click', (event)=>{
+  if(event.target.getAttribute('data-is-playing') == 'false'){
+    let songSrc = playPauseElement.getAttribute('data-curr-song');
+    if(songSrc){
+      if(songSrc == 0) playSong(songSrc);
+      else song.play()
+      event.target.setAttribute('data-is-playing', true)
+    }else if(songList.children.length > 0){
+      songSrc = songList.children[0].getAttribute('data-song-path');
+      playSong(songSrc);
+      event.target.setAttribute('data-is-playing', true)
+    }else{
+      console.log('no song added to music player');
+    }
+  }else{
+    song.pause();
+    event.target.setAttribute('data-is-playing', false)
+  }
+});
+nextElement.addEventListener('click', (event)=>{
+  console.log(event.target);
+})
+loopElement.addEventListener('click', (event)=>{
+  console.log(event.target);
+})

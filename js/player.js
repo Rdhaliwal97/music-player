@@ -1,6 +1,9 @@
 // Event listeners 👂
 document.querySelector('#addDirectory').addEventListener('click',addDirectory);
 document.getElementById("settings").addEventListener("click", openSettings);
+myRange.addEventListener("input", function() {
+  song.currentTime = this.value;
+}, false);
 //
 const extFilter = 'mp3'
 //
@@ -14,10 +17,12 @@ function getDirectory(){
 //
 async function addDirectory() {
   let exportDirArr = await getDirectory();
-  for (const exportDir of exportDirArr) {
-    let res = await directory.add(exportDir);
-    if(res.code == dbcodes.success) console.log('success');
-    else console.log('failure');
+  if(exportDirArr){
+    for (const exportDir of exportDirArr) {
+      let res = await directory.add(exportDir);
+      if(res.code == dbcodes.success) console.log('success');
+      else console.log('failure');
+    }
   }
 }
 //
@@ -45,11 +50,17 @@ async function parseFiles(audioFiles, __path) {
 }
 //
 function openSettings() {
-  //
+  // open settings
 }
-const slider = document.getElementById("myRange");
-
-slider.oninput = function() {
-  // console.log(this.value);
-  song.currentTime = this.value;
+//
+async function playSong(songSrc) {
+  const metadata = await mm.parseFile(songSrc);
+  song.src = songSrc;
+  song.play();
+  myRange.min = 0;
+  myRange.value = 0;
+  myRange.max = duration;
+  currTimeElement.textContent = '0:00'
+  playPauseElement.setAttribute('data-curr-song', songSrc);
+  durationElement.textContent = `${parseInt(metadata.format.duration / 60)}:${parseInt(metadata.format.duration % 60)}`
 }

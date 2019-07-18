@@ -74,6 +74,9 @@ body,html{
 #search{
   transform: scaleX(-1)
 }
+#loop{
+  transform: scale(-1)
+}
 #mainPanel{
   grid-area: mainPanel;
   background-color: var(--main-bgc);
@@ -131,7 +134,6 @@ duration{
   grid-area: songinfo;
 }
 #player{
-  background-color: #f0f;
   grid-area: player;
 }
 #controls{
