@@ -80,9 +80,10 @@ async function playSong(songSrc) {
   myRange.max = duration;
   currTimeElement.textContent = "0:00";
   playPauseElement.setAttribute("data-curr-song", songSrc);
-  durationElement.textContent = `${parseInt(duration / 60)}:${parseInt(
-    duration % 60
-  )}`;
+  let mins = parseInt(duration / 60);
+  let seconds = parseInt(duration % 60);
+  if (seconds <= 9) seconds = "0" + seconds;
+  durationElement.textContent = `${mins}:${seconds}`;
 }
 //
 function pauseSong() {

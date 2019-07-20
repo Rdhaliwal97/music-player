@@ -71,7 +71,6 @@ previousElement.addEventListener('click', (event)=>{
       playPauseElement.setAttribute('data-song-index', prevSongIndex);
     }
   }
-  // else if(currSongIndex == (songIndex - 1)) console.log('last song');
 });
 playPauseElement.addEventListener('click', (event)=>{
   if(playPauseElement.getAttribute('data-is-playing') == 'false'){
