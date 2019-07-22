@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
-const iconPath = path.resolve(process.cwd(), "media", "icons", "24.png");
+const iconPath = path.join("media", "icons", "24.png");
 let win;
 function createWindow() {
   win = new BrowserWindow({

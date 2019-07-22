@@ -23,7 +23,7 @@ function addSongToDisplay(metadata, songObj) {
     songIndex++;
 }
 function setTheme(themeName = 'light') {
-  document.getElementById('themeFile').href = path.resolve('css', themeName, 'variables.css');
+  document.getElementById('themeFile').href = path.join('css', themeName, 'variables.css');
 }
 //
 window.addEventListener("resize",setHeight);
