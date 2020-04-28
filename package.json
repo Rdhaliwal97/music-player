@@ -29,12 +29,12 @@
   },
   "homepage": "https://github.com/rdhaliwal98/r-music-player#readme",
   "devDependencies": {
-    "electron": "^5.0.12",
-    "electron-builder": "^21.1.1"
+    "electron": "^5.0.13",
+    "electron-builder": "^21.2.0"
   },
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "music-metadata": "^4.2.1",
+    "music-metadata": "^4.9.2",
     "nedb": "^1.8.0",
     "path": "^0.12.7"
   }
