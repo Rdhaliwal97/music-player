@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/rdhaliwal98/r-music-player#readme",
   "devDependencies": {
-    "electron": "^5.0.12",
+    "electron": "^7.2.4",
     "electron-builder": "^21.1.1"
   },
   "dependencies": {
