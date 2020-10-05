@@ -18,7 +18,7 @@
     "url": "git+https://github.com/rdhaliwal98/r-music-player.git"
   },
   "keywords": [
-    "[music-player",
+    "music-player",
     "electron-app",
     "nodejs"
   ],
