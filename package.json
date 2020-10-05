@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "music-metadata": "^4.2.1",
+    "music-metadata": "^4.9.2",
     "nedb": "^1.8.0",
     "path": "^0.12.7"
   }
