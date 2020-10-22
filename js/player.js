@@ -41,8 +41,8 @@ function extension(element) {
 // let songArr = []
 async function extractMusicFiles(__pathArr) {
 	let songArr = [];
-	for (const __path of __pathArr) {
-		let res = await fse.readdir(__path);
+	for (const path of __pathArr) {
+		let res = await fse.readdir(`${path}`);
 		res.filter(extension).forEach((element) => {
 			songArr.push({ name: element, path: path.resolve(__path, element) });
 		});
