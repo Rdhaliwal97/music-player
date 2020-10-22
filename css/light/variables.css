@@ -1,20 +1,20 @@
 :root {
-	--main-grid-rows: 30px 1fr 90px;
-	--main-grid-cols: 50px 1fr 75px;
-	--main-grid-areas: 'sidebar titlebar titlebar' 'sidebar mainPanel mainPanel'
-		'playerArea playerArea playerArea';
-	--sidebar-bgc: #f2f2f2;
-	--sidebarIcons-fill: #000000;
-	--main-bgc: #ffffff;
-	--playerArea-bgc: #464d57;
-	--song-color: #00000;
-	--titlebar-bgc: #ffffff;
-	--song-odd-bgc: #f2f2f2;
-	--song-even-bgc: #ffffff;
-	--song-hover-bgc: #d9d9d9;
-	--song-active-color: #515c6b;
-	--windowControlButton-bgc: #000000;
-	--windowControlButton-hover-bgc: #d9d9d9;
-	--scrollbar-color: #d6cbcb;
-	--scrollbar-hover-color: #cfcccc;
+  --main-grid-rows: 30px 1fr 90px;
+  --main-grid-cols: 50px 1fr 75px;
+  --main-grid-areas: 'sidebar titlebar titlebar' 'sidebar mainPanel mainPanel'
+    'playerArea playerArea playerArea';
+  --sidebar-bgc: #f2f2f2;
+  --sidebarIcons-fill: #000000;
+  --main-bgc: #ffffff;
+  --playerArea-bgc: #464d57;
+  --song-color: #00000;
+  --titlebar-bgc: #ffffff;
+  --song-odd-bgc: #f2f2f2;
+  --song-even-bgc: #ffffff;
+  --song-hover-bgc: #d9d9d9;
+  --song-active-color: #515c6b;
+  --windowControlButton-bgc: #000000;
+  --windowControlButton-hover-bgc: #d9d9d9;
+  --scrollbar-color: #d6cbcb;
+  --scrollbar-hover-color: #cfcccc;
 }
