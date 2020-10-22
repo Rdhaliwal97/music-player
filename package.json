@@ -1,41 +1,43 @@
 {
-  "name": "r-music-player",
-  "version": "1.0.0",
-  "description": "simple, light-weight and easy to use music player",
-  "main": "index.js",
-  "scripts": {
-    "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder -w"
-  },
-  "build": {
-    "appId": "rPlayer",
-    "productName": "r-music-player",
-    "copyright": "MIT"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rdhaliwal98/r-music-player.git"
-  },
-  "keywords": [
-    "music-player",
-    "electron-app",
-    "nodejs"
-  ],
-  "author": "https://github.com/rdhliwal97",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rdhaliwal98/r-music-player/issues"
-  },
-  "homepage": "https://github.com/rdhaliwal98/r-music-player#readme",
-  "devDependencies": {
-    "electron": "^7.2.4",
-    "electron-builder": "^21.1.1"
-  },
-  "dependencies": {
-    "fs-extra": "^8.1.0",
-    "music-metadata": "^4.9.2",
-    "nedb": "^1.8.0",
-    "path": "^0.12.7"
-  }
+	"name": "r-music-player",
+	"version": "1.0.0",
+	"description": "simple, light-weight and easy to use music player",
+	"main": "index.js",
+	"scripts": {
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder -w",
+		"format": "prettier --write ."
+	},
+	"build": {
+		"appId": "rPlayer",
+		"productName": "r-music-player",
+		"copyright": "MIT"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rdhaliwal98/r-music-player.git"
+	},
+	"keywords": [
+		"music-player",
+		"electron-app",
+		"nodejs"
+	],
+	"author": "https://github.com/rdhliwal97",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/rdhaliwal98/r-music-player/issues"
+	},
+	"homepage": "https://github.com/rdhaliwal98/r-music-player#readme",
+	"devDependencies": {
+		"electron": "^7.2.4",
+		"electron-builder": "^21.1.1",
+		"prettier": "^2.1.2"
+	},
+	"dependencies": {
+		"fs-extra": "^8.1.0",
+		"music-metadata": "^4.9.2",
+		"nedb": "^1.8.0",
+		"path": "^0.12.7"
+	}
 }
